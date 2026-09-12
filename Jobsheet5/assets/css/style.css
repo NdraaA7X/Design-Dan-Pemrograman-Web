@@ -217,6 +217,12 @@ footer {
   border-radius: 4px;
 }
 
+#filter-count {
+  color: #7a8794;
+  font-size: 0.85rem;
+  margin-top: 0.4rem;
+}
+
 /* ===== Tabel Bisa Di-scroll (Mobile) ===== */
 .table-responsive {
   overflow-x: auto;
@@ -246,14 +252,16 @@ footer {
   }
 
   header nav {
-    display: none;
     width: 100%;
     order: 3;
-    margin-top: 1rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
   }
 
   header nav.nav-open {
-    display: block;
+    max-height: 300px;
+    margin-top: 1rem;
   }
 
   header nav ul {
@@ -269,4 +277,10 @@ footer {
   form select {
     max-width: 100%;
   }
+}
+
+#filter-count {
+  color: #7a8794;
+  font-size: 0.85rem;
+  margin-top: 0.4rem;
 }

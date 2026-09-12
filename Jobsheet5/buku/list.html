@@ -6,7 +6,6 @@
     <title>SIMPUS-Mini | Daftar Buku</title>
     <link rel="stylesheet" href="../assets/css/style.css" />
   </head>
-  <script src="../assets/js/app.js"></script>
   <body>
     <header>
       <h1>SIMPUS-Mini</h1>
@@ -33,12 +32,13 @@
       <section>
         <h2>Daftar Buku</h2>
         <div class="search-box">
-          <label for="search-input">Cari Judul Buku</label>
+          <label for="search-input">Cari</label>
           <input
             type="text"
             id="search-input"
             placeholder="Ketik judul buku..."
           />
+          <p id="filter-count"></p>
         </div>
         <div class="table-responsive">
           <table>
@@ -114,7 +114,8 @@
     </main>
 
     <footer>
-      <p>&copy; 2026 SIMPUS-Mini — Jobsheet 2</p>
+      <p>&copy; 2026 SIMPUS-Mini — Jobsheet 5</p>
     </footer>
+    <script src="../assets/js/app.js"></script>
   </body>
 </html>

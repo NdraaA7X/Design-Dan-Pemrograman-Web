@@ -23,19 +23,33 @@ function initHapusConfirm() {
   });
 }
 
-// ===== Filter/pencarian tabel real-time =====
+// ===== Filter/pencarian tabel real-time (kolom Judul saja) + counter =====
+function updateCounter(table) {
+  const counter = document.getElementById("filter-count");
+  if (!counter) return;
+  const rows = table.querySelectorAll("tbody tr");
+  const visible = Array.from(rows).filter(
+    (r) => r.style.display !== "none",
+  ).length;
+  counter.textContent =
+    "Menampilkan " + visible + " dari " + rows.length + " data";
+}
+
 function initTableFilter() {
   const input = document.getElementById("search-input");
   const table = document.querySelector(".table-responsive table");
   if (!input || !table) return;
 
+  updateCounter(table);
+
   input.addEventListener("keyup", function () {
     const keyword = input.value.toLowerCase();
     const rows = table.querySelectorAll("tbody tr");
     rows.forEach(function (row) {
-      const teks = row.textContent.toLowerCase();
-      row.style.display = teks.includes(keyword) ? "" : "none";
+      const judul = row.querySelector("td")?.textContent.toLowerCase() || "";
+      row.style.display = judul.includes(keyword) ? "" : "none";
     });
+    updateCounter(table);
   });
 }
 
