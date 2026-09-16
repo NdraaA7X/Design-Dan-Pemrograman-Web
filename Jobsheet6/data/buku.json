@@ -1,0 +1,62 @@
+[
+  {
+    "judul": "Medieval Europe",
+    "pengarang": "Chris Wickham",
+    "tahun": 2016,
+    "stok": 4
+  },
+  {
+    "judul": "The History of the Medieval World",
+    "pengarang": "Susan Wise Bauer",
+    "tahun": 2010,
+    "stok": 6
+  },
+  {
+    "judul": "A Distant Mirror: The Calamitous 14th Century",
+    "pengarang": "Barbara W. Tuchman",
+    "tahun": 1978,
+    "stok": 10
+  },
+  {
+    "judul": "The Time Traveller's Guide to Medieval England",
+    "pengarang": "Ian Mortimer",
+    "tahun": 2008,
+    "stok": 8
+  },
+  {
+    "judul": "The Plantagenets: The Kings and Queens Who Made England",
+    "pengarang": "Dan Jones",
+    "tahun": 2012,
+    "stok": 5
+  },
+  {
+    "judul": "A World Lit Only by Fire",
+    "pengarang": "William Manchester",
+    "tahun": 1992,
+    "stok": 3
+  },
+  {
+    "judul": "The Crusades: The Authoritative History of the War for the Holy Land",
+    "pengarang": "Thomas Asbridge",
+    "tahun": 2010,
+    "stok": 6
+  },
+  {
+    "judul": "Life in a Medieval Village",
+    "pengarang": "Frances and Joseph Gies",
+    "tahun": 1990,
+    "stok": 4
+  },
+  {
+    "judul": "1066: The Year of the Conquest",
+    "pengarang": "David Howarth",
+    "tahun": 1977,
+    "stok": 0
+  },
+  {
+    "judul": "The Reformation: A History",
+    "pengarang": "Diarmaid MacCulloch",
+    "tahun": 2003,
+    "stok": 2
+  }
+]

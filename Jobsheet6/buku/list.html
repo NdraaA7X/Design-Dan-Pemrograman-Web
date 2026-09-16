@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SIMPUS-Mini | Daftar Buku</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>SIMPUS-Mini</h1>
+      <button
+        type="button"
+        id="nav-toggle-btn"
+        class="nav-toggle-label"
+        aria-label="Menu"
+      >
+        &#9776;
+      </button>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Beranda</a></li>
+          <li><a href="list.html">Daftar Buku</a></li>
+          <li><a href="tambah.html">Tambah Buku</a></li>
+          <li><a href="../anggota/list.html">Daftar Anggota</a></li>
+          <li><a href="../anggota/tambah.html">Tambah Anggota</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2>Daftar Buku</h2>
+        <div class="search-box">
+          <label for="search-input">Cari</label>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Ketik judul buku..."
+          />
+          <p id="filter-count"></p>
+        </div>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Judul</th>
+                <th>Pengarang</th>
+                <th>Tahun</th>
+                <th>Stok</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Medieval Europe</td>
+                <td>Chris Wickham</td>
+                <td>2016</td>
+                <td>4</td>
+                <td>
+                  <button type="button">Edit</button>
+                  <button type="button">Detail</button>
+                  <button type="button" class="btn-hapus">Hapus</button>
+                </td>
+              </tr>
+              <tr>
+                <td>The History of the Medieval World</td>
+                <td>Susan Wise Bauer</td>
+                <td>2010</td>
+                <td>6</td>
+                <td>
+                  <button type="button">Edit</button>
+                  <button type="button">Detail</button>
+                  <button type="button" class="btn-hapus">Hapus</button>
+                </td>
+              </tr>
+              <tr>
+                <td>A Distant Mirror: The Calamitous 14th Century</td>
+                <td>Barbara W. Tuchman</td>
+                <td>1978</td>
+                <td>10</td>
+                <td>
+                  <button type="button">Edit</button>
+                  <button type="button">Detail</button>
+                  <button type="button" class="btn-hapus">Hapus</button>
+                </td>
+              </tr>
+              <tr>
+                <td>The Time Traveller's Guide to Medieval England</td>
+                <td>Ian Mortimer</td>
+                <td>2008</td>
+                <td>8</td>
+                <td>
+                  <button type="button">Edit</button>
+                  <button type="button">Detail</button>
+                  <button type="button" class="btn-hapus">Hapus</button>
+                </td>
+              </tr>
+              <tr>
+                <td>The Plantagenets: The Kings and Queens Who Made England</td>
+                <td>Dan Jones</td>
+                <td>2012</td>
+                <td>5</td>
+                <td>
+                  <button type="button">Edit</button>
+                  <button type="button">Detail</button>
+                  <button type="button" class="btn-hapus">Hapus</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 SIMPUS-Mini — Jobsheet 5</p>
+    </footer>
+    <script src="../assets/js/app.js"></script>
+  </body>
+</html>
