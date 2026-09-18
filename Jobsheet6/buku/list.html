@@ -38,8 +38,10 @@
             id="search-input"
             placeholder="Ketik judul buku..."
           />
+          <button type="button" id="btn-muat-ulang">Muat Ulang</button>
           <p id="filter-count"></p>
         </div>
+        <p id="loading-indicator" style="display: none">Memuat data...</p>
         <div class="table-responsive">
           <table>
             <thead>
@@ -52,61 +54,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Medieval Europe</td>
-                <td>Chris Wickham</td>
-                <td>2016</td>
-                <td>4</td>
-                <td>
-                  <button type="button">Edit</button>
-                  <button type="button">Detail</button>
-                  <button type="button" class="btn-hapus">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>The History of the Medieval World</td>
-                <td>Susan Wise Bauer</td>
-                <td>2010</td>
-                <td>6</td>
-                <td>
-                  <button type="button">Edit</button>
-                  <button type="button">Detail</button>
-                  <button type="button" class="btn-hapus">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>A Distant Mirror: The Calamitous 14th Century</td>
-                <td>Barbara W. Tuchman</td>
-                <td>1978</td>
-                <td>10</td>
-                <td>
-                  <button type="button">Edit</button>
-                  <button type="button">Detail</button>
-                  <button type="button" class="btn-hapus">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>The Time Traveller's Guide to Medieval England</td>
-                <td>Ian Mortimer</td>
-                <td>2008</td>
-                <td>8</td>
-                <td>
-                  <button type="button">Edit</button>
-                  <button type="button">Detail</button>
-                  <button type="button" class="btn-hapus">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>The Plantagenets: The Kings and Queens Who Made England</td>
-                <td>Dan Jones</td>
-                <td>2012</td>
-                <td>5</td>
-                <td>
-                  <button type="button">Edit</button>
-                  <button type="button">Detail</button>
-                  <button type="button" class="btn-hapus">Hapus</button>
-                </td>
-              </tr>
+              <!-- Baris diisi dinamis oleh assets/js/buku.js via fetch('../data/buku.json') -->
             </tbody>
           </table>
         </div>
@@ -114,8 +62,9 @@
     </main>
 
     <footer>
-      <p>&copy; 2026 SIMPUS-Mini — Jobsheet 5</p>
+      <p>&copy; 2026 SIMPUS-Mini — Jobsheet 6</p>
     </footer>
     <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/buku.js"></script>
   </body>
 </html>

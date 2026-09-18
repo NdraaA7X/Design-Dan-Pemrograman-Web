@@ -3,60 +3,70 @@
     "judul": "Medieval Europe",
     "pengarang": "Chris Wickham",
     "tahun": 2016,
-    "stok": 4
+    "stok": 4,
+    "kategori": "Sejarah Eropa Abad Pertengahan"
   },
   {
     "judul": "The History of the Medieval World",
     "pengarang": "Susan Wise Bauer",
     "tahun": 2010,
-    "stok": 6
+    "stok": 6,
+    "kategori": "Sejarah Dunia Abad Pertengahan"
   },
   {
     "judul": "A Distant Mirror: The Calamitous 14th Century",
     "pengarang": "Barbara W. Tuchman",
     "tahun": 1978,
-    "stok": 10
+    "stok": 10,
+    "kategori": "Sejarah Eropa (Abad ke-14)"
   },
   {
     "judul": "The Time Traveller's Guide to Medieval England",
     "pengarang": "Ian Mortimer",
     "tahun": 2008,
-    "stok": 8
+    "stok": 8,
+    "kategori": "Sejarah sosial inggris"
   },
   {
     "judul": "The Plantagenets: The Kings and Queens Who Made England",
     "pengarang": "Dan Jones",
     "tahun": 2012,
-    "stok": 5
+    "stok": 5,
+    "kategori": "Sejarah Raja Inggris"
   },
   {
     "judul": "A World Lit Only by Fire",
     "pengarang": "William Manchester",
     "tahun": 1992,
-    "stok": 3
+    "stok": 3,
+    "kategori": "Sejarah Abad Pertengahan Renaisans"
   },
   {
     "judul": "The Crusades: The Authoritative History of the War for the Holy Land",
     "pengarang": "Thomas Asbridge",
     "tahun": 2010,
-    "stok": 6
+    "stok": 6,
+    "kategori": "Sejarah Perang Salib"
   },
   {
     "judul": "Life in a Medieval Village",
     "pengarang": "Frances and Joseph Gies",
     "tahun": 1990,
-    "stok": 4
+    "stok": 4,
+    "kategori": "Sejarah Kehidupan Desa Abad Pertengahan"
   },
   {
     "judul": "1066: The Year of the Conquest",
     "pengarang": "David Howarth",
     "tahun": 1977,
-    "stok": 0
+    "stok": 0,
+    "kategori": "Sejarah Penaklukan Norman"
   },
   {
     "judul": "The Reformation: A History",
     "pengarang": "Diarmaid MacCulloch",
     "tahun": 2003,
-    "stok": 2
+    "stok": 2,
+    "kategori": "Sejarah Reformasi Gereja"
   }
 ]
