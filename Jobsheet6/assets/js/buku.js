@@ -1,3 +1,4 @@
+// Fungsi generik untuk memuat data tabel dari JSON (Latihan 2)
 async function muatDataTabel(urlJson, kunciKolom) {
   const tbody = document.querySelector(".table-responsive table tbody");
   const loading = document.getElementById("loading-indicator");
@@ -37,12 +38,33 @@ async function muatDataTabel(urlJson, kunciKolom) {
     }
   } catch (err) {
     tbody.innerHTML =
-      '<tr><td colspan="5">Gagal memuat data: ' + err.message + "</td></tr>";
+      '<tr><td colspan="6">Gagal memuat data: ' + err.message + "</td></tr>";
   } finally {
     loading.style.display = "none";
   }
 }
 
+// Muat data buku dengan kolom Kategori (Latihan 3)
 document.addEventListener("DOMContentLoaded", function () {
-  muatDataTabel("../data/buku.json", ["judul", "pengarang", "tahun", "stok"]);
+  muatDataTabel("../data/buku.json", [
+    "judul",
+    "pengarang",
+    "tahun",
+    "stok",
+    "kategori",
+  ]);
+
+  // Tombol Muat Ulang (Latihan 1)
+  const btnMuatUlang = document.getElementById("btn-muat-ulang");
+  if (btnMuatUlang) {
+    btnMuatUlang.addEventListener("click", function () {
+      muatDataTabel("../data/buku.json", [
+        "judul",
+        "pengarang",
+        "tahun",
+        "stok",
+        "kategori",
+      ]);
+    });
+  }
 });

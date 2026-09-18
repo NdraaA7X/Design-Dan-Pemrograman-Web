@@ -1,4 +1,4 @@
-// ===== Hamburger menu (JS-driven, menggantikan checkbox hack) =====
+// ===== Hamburger menu (JS-driven) =====
 function initNavToggle() {
   const toggleBtn = document.getElementById("nav-toggle-btn");
   const nav = document.querySelector("header nav");
@@ -9,7 +9,7 @@ function initNavToggle() {
   });
 }
 
-// ===== Konfirmasi hapus (front-end only, belum ke server) =====
+// ===== Konfirmasi hapus (event delegation) =====
 function initHapusConfirm() {
   document.addEventListener("click", function (e) {
     const btn = e.target.closest(".btn-hapus");
@@ -24,7 +24,7 @@ function initHapusConfirm() {
   });
 }
 
-// ===== Filter/pencarian tabel real-time (kolom Judul saja) + counter =====
+// ===== Filter + counter =====
 function updateCounter(table) {
   const counter = document.getElementById("filter-count");
   if (!counter) return;
@@ -54,7 +54,7 @@ function initTableFilter() {
   });
 }
 
-// ===== Validasi form (client-side) =====
+// ===== Validasi form =====
 function tampilkanError(input, pesan) {
   hapusError(input);
   const span = document.createElement("span");
@@ -77,7 +77,6 @@ function initValidasiForm() {
   form.addEventListener("submit", function (e) {
     let valid = true;
 
-    // Judul (buku) atau Nama (anggota)
     const judul = form.querySelector("[name='judul'], [name='nama']");
     if (judul && judul.value.trim() === "") {
       tampilkanError(judul, "Field ini wajib diisi.");
@@ -86,7 +85,6 @@ function initValidasiForm() {
       hapusError(judul);
     }
 
-    // Pengarang (buku) atau No. Anggota (anggota)
     const pengarang = form.querySelector(
       "[name='pengarang'], [name='no_anggota']",
     );
@@ -97,7 +95,6 @@ function initValidasiForm() {
       hapusError(pengarang);
     }
 
-    // Tahun terbit (khusus buku)
     const tahun = form.querySelector("[name='tahun']");
     if (tahun) {
       const nilai = parseInt(tahun.value, 10);
@@ -109,7 +106,6 @@ function initValidasiForm() {
       }
     }
 
-    // Stok (khusus buku)
     const stok = form.querySelector("[name='stok']");
     if (stok) {
       const nilaiStok = parseInt(stok.value, 10);
