@@ -1,0 +1,453 @@
+/* ===== Reset & Gaya Dasar Body ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #334155;
+  background-color: #f8fafc;
+  line-height: 1.5;
+}
+
+a {
+  color: #1e40af;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Header & Navbar (Deep Slate) ===== */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #0f172a;
+  color: #fff;
+  padding: 1rem 2rem;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+header nav ul li a {
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+header nav ul li a:hover {
+  color: #bfdbfe;
+}
+
+/* ===== Status Login (Auth Status) — Jobsheet 10 ===== */
+.auth-status {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #fff;
+}
+
+.auth-status span {
+  font-weight: 500;
+}
+
+.auth-status a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.auth-status a:hover {
+  color: #bfdbfe;
+}
+
+/* ===== Badge Role (Latihan Tambahan 1) ===== */
+.role-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.role-admin {
+  background-color: #fbbf24;
+  color: #78350f;
+}
+
+.role-petugas {
+  background-color: #93c5fd;
+  color: #1e3a8a;
+}
+
+/* Placeholder hapus untuk non-admin */
+.btn-role-info {
+  display: inline-block;
+  padding: 0.35rem 0.7rem;
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+/* ===== Main & Section ===== */
+main {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+main section {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+main section h2 {
+  margin-bottom: 1rem;
+  color: #1e40af;
+}
+
+/* ===== Grid Kartu Statistik ===== */
+main section:nth-of-type(2) {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+main section:nth-of-type(2) h2 {
+  grid-column: 1 / -1;
+}
+
+main section:nth-of-type(2) article {
+  background-color: #eff6ff;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+}
+
+main section:nth-of-type(2) article h3 {
+  font-size: 0.85rem;
+  color: #475569;
+  font-weight: 500;
+}
+
+main section:nth-of-type(2) article p {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #1e40af;
+}
+
+/* ===== Tabel ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+thead {
+  background-color: #1e40af;
+  color: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+tbody tr:hover {
+  background-color: #f1f5f9;
+}
+
+/* ===== Tombol Aksi (Soft Button) ===== */
+td button {
+  padding: 0.35rem 0.7rem;
+  margin-right: 0.35rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+/* Tombol Hapus - Merah Soft */
+td button.btn-hapus,
+td button:last-of-type {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+td button.btn-hapus:hover,
+td button:last-of-type:hover {
+  background-color: #fecaca;
+}
+
+/* ===== Form ===== */
+form p {
+  margin-bottom: 1rem;
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+form input,
+form select {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+form input:focus,
+form select:focus {
+  outline: none;
+  border-color: #1e40af;
+  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+
+form button[type="submit"] {
+  background-color: #1e40af;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+form button[type="submit"]:hover {
+  background-color: #1e3a8a;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 1.25rem;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+/* ===== Menu Hamburger (JS-driven) ===== */
+.nav-toggle-label {
+  display: none;
+  font-size: 1.6rem;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ===== Pesan Error Validasi ===== */
+.error {
+  display: block;
+  color: #dc2626;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+/* ===== Kolom Pencarian ===== */
+.search-box {
+  margin-bottom: 1rem;
+}
+
+.search-box input {
+  width: 100%;
+  max-width: 320px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+}
+
+#filter-count {
+  color: #64748b;
+  font-size: 0.85rem;
+  margin-top: 0.4rem;
+}
+
+/* ===== Tabel Bisa Di-scroll (Mobile) ===== */
+.table-responsive {
+  overflow-x: auto;
+}
+
+.table-responsive table {
+  min-width: 600px;
+}
+
+/* ===== Responsive Breakpoints ===== */
+
+/* Monitor sangat lebar */
+@media (min-width: 1400px) {
+  main {
+    max-width: 1300px;
+  }
+}
+
+/* Tablet ke bawah */
+@media (max-width: 768px) {
+  main section:nth-of-type(2) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  header {
+    position: relative;
+  }
+
+  .nav-toggle-label {
+    display: block;
+  }
+
+  header nav {
+    display: none;
+    width: 100%;
+    order: 3;
+    margin-top: 1rem;
+  }
+
+  header nav.nav-open {
+    display: block;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  main section:nth-of-type(2) {
+    grid-template-columns: 1fr;
+  }
+
+  form input,
+  form select {
+    max-width: 100%;
+  }
+}
+
+/* ===== Flash Message ===== */
+.flash {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.flash-success {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.flash-error {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* ===== Tautan Edit yang Terlihat Seperti Tombol ===== */
+td a.btn-edit {
+  display: inline-block;
+  padding: 0.35rem 0.7rem;
+  margin-right: 0.35rem;
+  background-color: #fef3c7;
+  color: #b45309;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+td a.btn-edit:hover {
+  background-color: #fde68a;
+  text-decoration: none;
+}
+
+/* ===== Tombol Tambah ===== */
+a.btn-tambah {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #1e40af;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a.btn-tambah:hover {
+  background-color: #1e3a8a;
+  text-decoration: none;
+}
+
+/* ===== Form Hapus Tidak Merusak Tata Letak ===== */
+td form.form-hapus {
+  display: inline;
+}
+
+/* ===== Navigasi Pagination ===== */
+.pagination {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.pagination a {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  color: #1e40af;
+  text-decoration: none;
+}
+
+.pagination a:hover {
+  background-color: #eff6ff;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #1e40af;
+  color: #fff;
+  border-color: #1e40af;
+}
+
+/* ===== Form Pencarian Sejajar Tombol Cari ===== */
+.search-box form {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+.search-box button {
+  padding: 0.55rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #1e40af;
+  color: #fff;
+  cursor: pointer;
+}
+
+.search-box button:hover {
+  background-color: #1e3a8a;
+}
