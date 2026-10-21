@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pengecek Angka & Ganjil Genap</title>
+    <style>
+      :root {
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --success-bg: #dcfce7;
+
+        --success-border: #86efac;
+        --success-text: #166534;
+        --error-bg: #fee2e2;
+        --error-border: #fca5a5;
+        --error-text: #991b1b;
+        --text-main: #1e293b;
+        --text-muted: #64748b;
+        --bg-page: #f8fafc;
+        --card-bg: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #e0e7ff 0%, #f1f5f9 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        color: var(--text-main);
+      }
+
+      .container {
+        background: var(--card-bg);
+        max-width: 520px;
+        width: 100%;
+        border-radius: 16px;
+        box-shadow:
+          0 10px 25px -5px rgba(0, 0, 0, 0.1),
+          0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        padding: 32px;
+        border: 1px solid #e2e8f0;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 24px;
+      }
+
+      .header h1 {
+        font-size: 1.6rem;
+        color: #0f172a;
+        margin-bottom: 8px;
+      }
+
+      .header p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 8px;
+        font-size: 0.95rem;
+        color: #334155;
+      }
+
+      .input-wrapper {
+        position: relative;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 1.05rem;
+        border: 2px solid #cbd5e1;
+        border-radius: 10px;
+        outline: none;
+        transition: all 0.2s ease;
+        background: #f8fafc;
+      }
+
+      input[type="text"]:focus {
+        border-color: var(--primary);
+        background: #fff;
+        box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+      }
+
+      .btn-group {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+
+      button {
+        flex: 1;
+        padding: 12px 20px;
+        font-size: 1rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: #fff;
+      }
+
+      .btn-primary:hover {
+        background: var(--primary-hover);
+        transform: translateY(-1px);
+      }
+
+      .btn-secondary {
+        background: #e2e8f0;
+        color: #475569;
+      }
+
+      .btn-secondary:hover {
+        background: #cbd5e1;
+      }
+
+      /* Result Card */
+      .result-box {
+        display: none;
+        border-radius: 12px;
+        padding: 20px;
+        margin-top: 10px;
+        animation: fadeIn 0.3s ease;
+        border: 1.5px solid transparent;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .result-box.valid {
+        background: var(--success-bg);
+        border-color: var(--success-border);
+        color: var(--success-text);
+      }
+
+      .result-box.invalid {
+        background: var(--error-bg);
+        border-color: var(--error-border);
+        color: var(--error-text);
+      }
+
+      .result-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+
+      .result-details {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .detail-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 6px 0;
+        border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+      }
+
+      .detail-item:last-child {
+        border-bottom: none;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 3px 10px;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      .badge-genap {
+        background: #3b82f6;
+        color: white;
+      }
+
+      .badge-ganjil {
+        background: #f97316;
+        color: white;
+      }
+
+      .badge-desimal {
+        background: #8b5cf6;
+        color: white;
+      }
+
+      .history-section {
+        margin-top: 28px;
+        border-top: 1px solid #e2e8f0;
+        padding-top: 18px;
+      }
+
+      .history-title {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .history-list {
+        list-style: none;
+        max-height: 160px;
+        overflow-y: auto;
+      }
+
+      .history-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 12px;
+        background: #f8fafc;
+        border-radius: 8px;
+        margin-bottom: 6px;
+        font-size: 0.9rem;
+        border: 1px solid #edf2f7;
+      }
+
+      .history-tag-ok {
+        color: #166534;
+        font-weight: 600;
+      }
+
+      .history-tag-fail {
+        color: #991b1b;
+        font-weight: 600;
+      }
+
+      .empty-history {
+        text-align: center;
+        font-size: 0.85rem;
+        color: #94a3b8;
+        font-style: italic;
+        padding: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🔍 Pengecek Angka & Ganjil Genap</h1>
+        <p>
+          Masukkan nilai untuk memvalidasi apakah input adalah angka, serta
+          menentukan status ganjil/genap.
+        </p>
+      </div>
+
+      <form
+        id="checkerForm"
+        onsubmit="
+          event.preventDefault();
+          prosesPemeriksaan();
+        "
+      >
+        <div class="form-group">
+          <label for="inputData">Masukkan Data / Nilai:</label>
+          <div class="input-wrapper">
+            <input
+              type="text"
+              id="inputData"
+              placeholder="Contoh: 14, 25, 3.14, atau abc"
+              autofocus
+              autocomplete="off"
+            />
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <button type="submit" class="btn-primary">Periksa Sekarang</button>
+          <button type="button" class="btn-secondary" onclick="resetForm()">
+            Reset
+          </button>
+        </div>
+      </form>
+
+      <!-- Box Hasil -->
+      <div id="resultBox" class="result-box">
+        <div id="resultHeader" class="result-header"></div>
+        <div id="resultDetails" class="result-details"></div>
+      </div>
+
+      <!-- Riwayat Pengecekan -->
+      <div class="history-section">
+        <div class="history-title">
+          <span>Riwayat Percobaan</span>
+          <button
+            type="button"
+            onclick="clearHistory()"
+            style="
+              background: none;
+              border: none;
+              color: #ef4444;
+              font-size: 0.8rem;
+              cursor: pointer;
+              flex: none;
+              padding: 0;
+            "
+          >
+            Hapus Riwayat
+          </button>
+        </div>
+        <ul id="historyList" class="history-list">
+          <li class="empty-history" id="emptyHistoryMsg">
+            Belum ada riwayat pengecekan.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      const inputElement = document.getElementById("inputData");
+      const resultBox = document.getElementById("resultBox");
+      const resultHeader = document.getElementById("resultHeader");
+      const resultDetails = document.getElementById("resultDetails");
+      const historyList = document.getElementById("historyList");
+      const emptyHistoryMsg = document.getElementById("emptyHistoryMsg");
+
+      // Otomatis cek saat pengguna mengetik (opsional/realtime preview)
+      inputElement.addEventListener("input", function () {
+        if (inputElement.value.trim() === "") {
+          resultBox.style.display = "none";
+        }
+      });
+
+      function prosesPemeriksaan() {
+        const rawInput = inputElement.value;
+        const trimmedInput = rawInput.trim();
+
+        if (trimmedInput === "") {
+          tampilkanHasilSalah(
+            rawInput,
+            "Input tidak boleh kosong! Harap masukkan angka atau teks.",
+          );
+          simpanRiwayat(rawInput || "(Kosong)", "SALAH (Kosong)");
+          return;
+        }
+
+        // Cek apakah benar-benar angka numerik (termasuk integer, desimal, negatif)
+        // Syarat: tidak bernilai NaN, dan bukan string kosong
+        const isAngka =
+          !isNaN(trimmedInput) && !isNaN(parseFloat(trimmedInput));
+
+        if (isAngka) {
+          const numericValue = Number(trimmedInput);
+
+          // Cek apakah integer atau desimal
+          const isInteger = Number.isInteger(numericValue);
+
+          let statusGanjilGenap = "";
+          let badgeClass = "";
+          let detailKategori = "";
+
+          if (isInteger) {
+            // Bilangan bulat
+            if (numericValue % 2 === 0) {
+              statusGanjilGenap = "GENAP";
+              badgeClass = "badge-genap";
+            } else {
+              statusGanjilGenap = "GANJIL";
+              badgeClass = "badge-ganjil";
+            }
+
+            // Info tanda bilangan
+            let sifatTanda = "";
+            if (numericValue > 0) sifatTanda = "Positif";
+            else if (numericValue < 0) sifatTanda = "Negatif";
+            else sifatTanda = "Nol (Netral)";
+
+            detailKategori = `
+                    <div class="detail-item">
+                        <span>Input Diterima:</span>
+                        <strong>${escapeHtml(trimmedInput)}</strong>
+                    </div>
+                    <div class="detail-item">
+                        <span>Status Input:</span>
+                        <strong><span style="color:#166534;">BENAR (Merupakan Angka)</span></strong>
+                    </div>
+                    <div class="detail-item">
+                        <span>Jenis Bilangan:</span>
+                        <strong>Bilangan Bulat (${sifatTanda})</strong>
+                    </div>
+                    <div class="detail-item">
+                        <span>Klasifikasi:</span>
+                        <span><span class="badge ${badgeClass}">${statusGanjilGenap}</span></span>
+                    </div>
+                `;
+
+            tampilkanHasilBenar(detailKategori, statusGanjilGenap);
+            simpanRiwayat(trimmedInput, `BENAR (${statusGanjilGenap})`);
+          } else {
+            // Bilangan desimal / pecahan
+            detailKategori = `
+                    <div class="detail-item">
+                        <span>Input Diterima:</span>
+                        <strong>${escapeHtml(trimmedInput)}</strong>
+                    </div>
+                    <div class="detail-item">
+                        <span>Status Input:</span>
+                        <strong><span style="color:#166534;">BENAR (Merupakan Angka)</span></strong>
+                    </div>
+                    <div class="detail-item">
+                        <span>Jenis Bilangan:</span>
+                        <span><span class="badge badge-desimal">Bilangan Desimal / Pecahan</span></span>
+                    </div>
+                    <div class="detail-item">
+                        <span>Catatan Ganjil/Genap:</span>
+                        <em>Aturan ganjil/genap hanya berlaku untuk bilangan bulat (integer).</em>
+                    </div>
+                `;
+
+            tampilkanHasilBenar(detailKategori, "Desimal");
+            simpanRiwayat(trimmedInput, `BENAR (Desimal)`);
+          }
+        } else {
+          // Bukan angka (huruf, simbol, campuran teks)
+          tampilkanHasilSalah(
+            trimmedInput,
+            `Karakter "<strong>${escapeHtml(trimmedInput)}</strong>" mengandung huruf, simbol, atau bukan angka numerik valid.`,
+          );
+          simpanRiwayat(trimmedInput, "SALAH (Bukan Angka)");
+        }
+      }
+
+      function tampilkanHasilBenar(detailHtml, statusSingkat) {
+        resultBox.className = "result-box valid";
+        resultBox.style.display = "block";
+
+        resultHeader.innerHTML = `
+            <span>✅</span>
+            <span>HASIL: BENAR (ANGKA)</span>
+        `;
+        resultDetails.innerHTML = detailHtml;
+      }
+
+      function tampilkanHasilSalah(nilaiInput, alasan) {
+        resultBox.className = "result-box invalid";
+        resultBox.style.display = "block";
+
+        resultHeader.innerHTML = `
+            <span>❌</span>
+            <span>HASIL: SALAH (BUKAN ANGKA)</span>
+        `;
+        resultDetails.innerHTML = `
+            <div class="detail-item">
+                <span>Input Diberikan:</span>
+                <strong>${escapeHtml(nilaiInput)}</strong>
+            </div>
+            <div class="detail-item">
+                <span>Status Input:</span>
+                <strong><span style="color:#991b1b;">SALAH</span></strong>
+            </div>
+            <div style="margin-top: 10px; font-size: 0.9rem;">
+                ${alasan}
+            </div>
+        `;
+      }
+
+      function resetForm() {
+        inputElement.value = "";
+        resultBox.style.display = "none";
+        inputElement.focus();
+      }
+
+      function simpanRiwayat(inputVal, hasil) {
+        if (emptyHistoryMsg) {
+          emptyHistoryMsg.style.display = "none";
+        }
+
+        const li = document.createElement("li");
+        li.className = "history-item";
+
+        const isOk = hasil.startsWith("BENAR");
+        const tagClass = isOk ? "history-tag-ok" : "history-tag-fail";
+
+        li.innerHTML = `
+            <span><strong>${escapeHtml(inputVal)}</strong></span>
+            <span class="${tagClass}">${hasil}</span>
+        `;
+
+        historyList.insertBefore(li, historyList.firstChild);
+
+        // Maksimal 8 item riwayat agar tidak terlalu panjang
+        while (historyList.children.length > 8) {
+          historyList.removeChild(historyList.lastChild);
+        }
+      }
+
+      function clearHistory() {
+        historyList.innerHTML =
+          '<li class="empty-history" id="emptyHistoryMsg">Belum ada riwayat pengecekan.</li>';
+      }
+
+      function escapeHtml(string) {
+        return String(string)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+    </script>
+  </body>
+</html>
